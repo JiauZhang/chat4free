@@ -3,13 +3,13 @@ from setuptools import setup, find_packages
 
 filename = './alias.json'
 name = json.load(open(filename))[0]
-src_dir = 'chat4free'
+srctree = 'chat4free'
 
-if name != src_dir: os.system(f'mv {src_dir} {name}')
+if name != srctree: os.system(f'mv {srctree} {name}')
 setup(
     name = name,
     packages = find_packages(exclude=['examples']),
-    version = '0.0.0',
+    version = '0.0.0b',
     license = 'GPL-2.0',
     description = 'Chat for Free',
     author = 'JiauZhang',
@@ -21,6 +21,7 @@ setup(
         'ChatBot',
     ],
     install_requires=[
+        'httpx',
     ],
     classifiers=[
         'Intended Audience :: Developers',
@@ -28,4 +29,4 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
 )
-if src_dir != name: os.system(f'mv {name} {src_dir}')
+if srctree != name: os.system(f'mv {name} {srctree}')
